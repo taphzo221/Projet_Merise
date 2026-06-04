@@ -2349,6 +2349,12 @@ def teleconsultation_edit(tid):
 </div>'''
     return layout('Modifier Téléconsultation', content, 'teleconsultation')
 
+try:
+    init_db()
+except Exception as _e:
+    import traceback
+    traceback.print_exc()
+
 # ================================================================
 # MAIN
 # ================================================================
