@@ -531,16 +531,53 @@ textarea.lt-form-control{resize:vertical;min-height:80px;}
   min-height:100vh;
   background:linear-gradient(135deg,var(--grn-950) 0%,var(--grn-800) 55%,var(--grn-950) 100%);
   display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;
+  padding:24px;
 }
 .login-bg-circles{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
 .login-bg-circles::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(19,133,85,.14) 0%,transparent 70%);top:-150px;left:-100px;}
 .login-bg-circles::after{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(30,160,104,.12) 0%,transparent 70%);bottom:-120px;right:-80px;}
 .login-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:40px 40px;}
-.login-card{background:#fff;border-radius:20px;width:100%;max-width:440px;box-shadow:0 32px 80px rgba(0,0,0,.4);overflow:hidden;position:relative;z-index:1;border:1px solid rgba(255,255,255,.08);}
+.login-wrapper{
+  display:flex;align-items:center;justify-content:center;gap:56px;
+  width:100%;max-width:1140px;position:relative;z-index:1;
+}
+.login-services-panel{flex:1;max-width:430px;color:#fff;}
+.login-services-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 15px;border-radius:20px;background:rgba(57,187,131,.14);
+  border:1px solid rgba(57,187,131,.32);color:var(--grn-200);
+  font-size:11px;font-weight:700;letter-spacing:1.1px;text-transform:uppercase;margin-bottom:20px;
+}
+.login-services-title{
+  font-family:var(--font-display);font-size:30px;font-weight:700;color:#fff;
+  line-height:1.28;margin-bottom:12px;letter-spacing:.2px;
+}
+.login-services-title span{color:var(--grn-300);}
+.login-services-sub{
+  color:rgba(255,255,255,.55);font-size:13.5px;line-height:1.7;margin-bottom:30px;max-width:400px;
+}
+.login-services-list{display:flex;flex-direction:column;gap:12px;}
+.login-service-item{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:13px 16px;border-radius:var(--radius-sm);
+  background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);
+  transition:.2s;
+}
+.login-service-item:hover{background:rgba(255,255,255,.085);border-color:rgba(57,187,131,.4);transform:translateX(4px);}
+.login-service-icon{
+  width:40px;height:40px;border-radius:11px;flex-shrink:0;
+  background:linear-gradient(135deg,var(--grn-500),var(--grn-300));
+  display:flex;align-items:center;justify-content:center;color:#fff;font-size:15.5px;
+  box-shadow:0 4px 12px rgba(19,133,85,.32);
+}
+.login-service-text{flex:1;min-width:0;padding-top:1px;}
+.login-service-name{color:#fff;font-size:13.5px;font-weight:700;margin-bottom:2px;letter-spacing:.1px;}
+.login-service-desc{color:rgba(255,255,255,.5);font-size:12px;line-height:1.5;}
+.login-card{background:#fff;border-radius:20px;width:100%;max-width:440px;box-shadow:0 32px 80px rgba(0,0,0,.4);overflow:hidden;position:relative;z-index:1;border:1px solid rgba(255,255,255,.08);flex-shrink:0;}
 .login-card-top{padding:36px 40px 28px;background:linear-gradient(135deg,var(--grn-800) 0%,var(--grn-600) 100%);text-align:center;position:relative;overflow:hidden;}
 .login-card-top::before{content:'';position:absolute;top:-30px;right:-30px;width:140px;height:140px;border-radius:50%;background:rgba(255,255,255,.04);}
 .login-card-top::after{content:'';position:absolute;bottom:-40px;left:-20px;width:120px;height:120px;border-radius:50%;background:rgba(30,160,104,.12);}
-.login-logo-ring{width:76px;height:76px;border-radius:20px;margin:0 auto 16px;background:linear-gradient(135deg,var(--grn-500),var(--grn-300));display:flex;align-items:center;justify-content:center;font-size:34px;box-shadow:0 8px 28px rgba(0,0,0,.25);position:relative;z-index:1;}
+.login-logo-ring{width:76px;height:76px;border-radius:20px;margin:0 auto 16px;background:linear-gradient(135deg,var(--grn-500),var(--grn-300));display:flex;align-items:center;justify-content:center;font-size:32px;color:#fff;box-shadow:0 8px 28px rgba(0,0,0,.25);position:relative;z-index:1;}
 .login-title{font-family:var(--font-display);font-size:22px;color:#fff;font-weight:700;margin-bottom:4px;position:relative;z-index:1;}
 .login-sub{color:rgba(255,255,255,.55);font-size:12px;position:relative;z-index:1;line-height:1.6;}
 .login-card-body{padding:32px 40px;}
@@ -555,8 +592,14 @@ textarea.lt-form-control{resize:vertical;min-height:80px;}
 .login-demo-box{margin-top:22px;padding:14px 16px;background:var(--surface);border-radius:var(--radius-sm);border:1px solid var(--border-light);}
 .login-demo-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.9px;color:var(--text-muted);margin-bottom:10px;display:flex;align-items:center;gap:6px;}
 .login-demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;font-size:12px;}
-.login-demo-item{display:flex;align-items:center;gap:6px;padding:5px 8px;border-radius:var(--radius-xs);color:var(--text-mid);}
+.login-demo-item{display:flex;align-items:center;gap:7px;padding:5px 8px;border-radius:var(--radius-xs);color:var(--text-mid);}
 .login-demo-item:hover{background:var(--grn-50);}
+.login-demo-item i{color:var(--grn-600);font-size:13px;width:14px;text-align:center;flex-shrink:0;}
+@media(max-width:980px){
+  .login-wrapper{flex-direction:column;gap:32px;}
+  .login-services-panel{max-width:460px;text-align:left;}
+  .login-services-list{display:none;}
+}
 
 .text-muted{color:var(--text-muted);}
 .text-green{color:var(--grn-600);}
@@ -615,6 +658,7 @@ def _head(title):
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Le Tropical · {title}</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>{CSS}</style>
 </head>'''
 
@@ -660,7 +704,7 @@ def layout(title, content, active=''):
 <aside class="sidebar">
   <div class="sb-header">
     <div class="sb-logo">
-      <div class="sb-logo-icon">🏥</div>
+      <div class="sb-logo-icon"><i class="fa-solid fa-house-medical" style="color:#fff"></i></div>
       <div class="sb-logo-text">
         <div class="sb-logo-title">Le Tropical</div>
         <div class="sb-logo-sub">Centre de Santé</div>
@@ -729,18 +773,41 @@ def login():
         error = '<div class="lt-alert lt-alert-danger"><i class="bi bi-x-circle-fill"></i><div>Identifiant ou mot de passe incorrect.</div></div>'
 
     demo_items = [
-        ('🛡️','admin','admin123'),('🎧','accueil','accueil123'),
-        ('⚕️','docteur','medecin123'),('💊','pharmacien','pharma123'),('👤','patient1','patient123'),
+        ('fa-solid fa-shield-halved','admin','admin123'),
+        ('fa-solid fa-headset','accueil','accueil123'),
+        ('fa-solid fa-user-doctor','docteur','medecin123'),
+        ('fa-solid fa-pills','pharmacien','pharma123'),
+        ('fa-solid fa-user','patient1','patient123'),
     ]
     demo_html = ''.join(
-        f'<div class="login-demo-item"><span>{ico}</span><div><span style="font-weight:700;color:var(--grn-700)">{lg}</span> / <span style="color:var(--text-muted)">{pw}</span></div></div>'
+        f'<div class="login-demo-item"><i class="{ico}"></i><div><span style="font-weight:700;color:var(--grn-700)">{lg}</span> / <span style="color:var(--text-muted)">{pw}</span></div></div>'
         for ico,lg,pw in demo_items)
 
+    services_items = [
+        ('fa-solid fa-users','Gestion des patients','Dossiers médicaux centralisés et historique complet.'),
+        ('fa-solid fa-calendar-check','Rendez-vous &amp; planification','Prise et suivi des rendez-vous en temps réel.'),
+        ('fa-solid fa-stethoscope','Consultations médicales','Diagnostics, notes cliniques et suivi des patients.'),
+        ('fa-solid fa-video','Téléconsultation','Consultations à distance par session vidéo sécurisée.'),
+        ('fa-solid fa-prescription-bottle-medical','Ordonnances &amp; pharmacie','Prescriptions numériques et gestion des stocks.'),
+        ('fa-solid fa-file-invoice-dollar','Facturation &amp; assurances','Facturation automatisée et prise en charge assurance.'),
+    ]
+    services_html = ''.join(f'''<div class="login-service-item">
+        <div class="login-service-icon"><i class="{ico}"></i></div>
+        <div class="login-service-text"><div class="login-service-name">{name}</div><div class="login-service-desc">{desc}</div></div>
+      </div>''' for ico,name,desc in services_items)
+
     html  = _head('Connexion')
-    html += '''<body><div class="login-page"><div class="login-bg-circles"></div><div class="login-bg-grid"></div>
-<div class="login-card">
+    html += f'''<body><div class="login-page"><div class="login-bg-circles"></div><div class="login-bg-grid"></div>
+<div class="login-wrapper">
+  <div class="login-services-panel">
+    <span class="login-services-eyebrow"><i class="fa-solid fa-house-medical"></i> Centre de Santé Le Tropical</span>
+    <div class="login-services-title">La santé de vos patients,<br><span>pilotée simplement.</span></div>
+    <div class="login-services-sub">SGRDMS réunit en une seule plateforme tous les services nécessaires à la gestion quotidienne du centre de santé, pour le personnel comme pour les patients.</div>
+    <div class="login-services-list">{services_html}</div>
+  </div>
+  <div class="login-card">
   <div class="login-card-top">
-    <div class="login-logo-ring">🏥</div>
+    <div class="login-logo-ring"><i class="fa-solid fa-house-chimney-medical"></i></div>
     <div class="login-title">Le Tropical</div>
     <div class="login-sub">Centre de Santé Communautaire<br>UIDT &middot; Système de Gestion Médicale &middot; 2026</div>
   </div>
@@ -764,7 +831,7 @@ def login():
   <div class="login-demo-title"><i class="bi bi-info-circle" style="color:var(--grn-400)"></i> Comptes de démonstration</div>
   <div class="login-demo-grid">'''
     html += demo_html
-    html += '''</div></div></div></div></div>
+    html += '''</div></div></div></div></div></div>
 <script>function togglePwd(){var p=document.getElementById('pwd'),e=document.getElementById('eye_icon');if(p.type==='password'){p.type='text';e.className='bi bi-eye-slash login-input-eye';}else{p.type='password';e.className='bi bi-eye login-input-eye';}}</script>
 </body></html>'''
     return html
@@ -2132,7 +2199,7 @@ def facture_view(cid):
   <div class="lt-card-header" style="background:var(--grn-800)">
     <div style="display:flex;justify-content:space-between;align-items:center;width:100%">
       <div style="display:flex;align-items:center;gap:10px">
-        <span style="font-size:26px">🏥</span>
+        <i class="fa-solid fa-house-medical" style="color:#fff;font-size:24px"></i>
         <div><div style="color:#fff;font-family:var(--font-display);font-size:16px;font-weight:700">Le Tropical</div><div style="color:rgba(255,255,255,.55);font-size:11px">Centre de Santé</div></div>
       </div>
       <div style="text-align:right;color:#fff"><div style="font-family:var(--font-display);font-size:18px">Facture N°{c["fid"]}</div><div style="font-size:12px;opacity:.65">{c["fd"]}</div></div>
@@ -2348,13 +2415,11 @@ def teleconsultation_edit(tid):
   </div>
 </div>'''
     return layout('Modifier Téléconsultation', content, 'teleconsultation')
-
 try:
     init_db()
 except Exception as _e:
     import traceback
     traceback.print_exc()
-
 # ================================================================
 # MAIN
 # ================================================================
